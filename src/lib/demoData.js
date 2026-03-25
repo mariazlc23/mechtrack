@@ -1,0 +1,106 @@
+// Demo data used when Google Sheets is not yet configured
+import { format, subHours, subDays } from "date-fns";
+
+const now = new Date();
+const fmt = (d) => format(d, "yyyy-MM-dd HH:mm");
+
+export const DEMO_MECHANICS = [
+  { id: "M001", name: "Hernan Cortes", role: "Mechanic", phone: "", active: "true" },
+];
+
+export const DEMO_EQUIPMENT = [
+  { id: "SS1",       name: "Compact Track Loader / Track Skid Steer", type: "Skid Steer",    serial: "SS1",       status: "Active", lastService: "", nextService: "", year: "2016" },
+  { id: "SS2",       name: "Skid Steer Loader",                        type: "Skid Steer",    serial: "SS2",       status: "Active", lastService: "", nextService: "", year: "2018" },
+  { id: "SS3",       name: "Skid Steer Loader / 5 ton",                type: "Skid Steer",    serial: "SS3",       status: "Active", lastService: "", nextService: "", year: "2015" },
+  { id: "SS4",       name: "Skid Steer Loader",                        type: "Skid Steer",    serial: "SS4",       status: "Active", lastService: "", nextService: "", year: "2015" },
+  { id: "EX1",       name: "Mini Ex / 2 ton",                          type: "Excavator",     serial: "EX1",       status: "Active", lastService: "", nextService: "", year: "2020" },
+  { id: "EX3",       name: "Excavator",                                type: "Excavator",     serial: "EX3",       status: "Active", lastService: "", nextService: "", year: "2017" },
+  { id: "EX4",       name: "Komatsu Excavator / 15 ton",               type: "Excavator",     serial: "EX4",       status: "Active", lastService: "", nextService: "", year: "2019" },
+  { id: "EX7",       name: "Excavator / 5 ton",                        type: "Excavator",     serial: "EX7",       status: "Active", lastService: "", nextService: "", year: "2019" },
+  { id: "EX8",       name: "Excavator / 3 ton",                        type: "Excavator",     serial: "EX8",       status: "Active", lastService: "", nextService: "", year: "2021" },
+  { id: "RC1",       name: "36\" Roller",                              type: "Compactor",     serial: "RC1",       status: "Active", lastService: "", nextService: "", year: "" },
+  { id: "AC1",       name: "185 CFM Diesel Air Compressor",            type: "Air Compressor", serial: "AC1",      status: "Active", lastService: "", nextService: "", year: "" },
+  { id: "TD1",       name: "Track Dumper",                             type: "Dumper",        serial: "TD1",       status: "Active", lastService: "", nextService: "", year: "" },
+  { id: "CCS1",      name: "Flat Saw",                                 type: "Saw",           serial: "CCS1",      status: "Active", lastService: "", nextService: "", year: "2020" },
+  { id: "CCS5",      name: "Diesel Walk Behind Saw",                   type: "Saw",           serial: "CCS5",      status: "Active", lastService: "", nextService: "", year: "2022" },
+  { id: "GEN1",      name: "Lincoln Electric Welding Generator",       type: "Generator",     serial: "GEN1",      status: "Active", lastService: "", nextService: "", year: "" },
+  { id: "GEN3",      name: "Generator - Diesel",                       type: "Generator",     serial: "GEN3",      status: "Active", lastService: "", nextService: "", year: "2016" },
+  { id: "FKL",       name: "Hyster H50CT Forklift",                    type: "Forklift",      serial: "FKL",       status: "Active", lastService: "", nextService: "", year: "2016" },
+  { id: "SLV1",      name: "Slurry Vacuum",                            type: "Vacuum",        serial: "SLV1",      status: "Active", lastService: "", nextService: "", year: "" },
+  { id: "PT1",       name: "Power Trowel",                             type: "Concrete",      serial: "PT1",       status: "Active", lastService: "", nextService: "", year: "" },
+  { id: "FAN1",      name: "24\" Drum Fan",                            type: "Fan",           serial: "FAN1",      status: "Active", lastService: "", nextService: "", year: "" },
+  { id: "FAN2",      name: "24\" Drum Fan",                            type: "Fan",           serial: "FAN2",      status: "Active", lastService: "", nextService: "", year: "" },
+  { id: "FAN3",      name: "24\" Drum Fan",                            type: "Fan",           serial: "FAN3",      status: "Active", lastService: "", nextService: "", year: "" },
+  { id: "AC2",       name: "21 Gallon Air Compressor",                 type: "Air Compressor", serial: "AC2",      status: "Active", lastService: "", nextService: "", year: "" },
+  { id: "AC3",       name: "6 Gallon Air Compressor",                  type: "Air Compressor", serial: "AC3",      status: "Active", lastService: "", nextService: "", year: "" },
+  { id: "AC4",       name: "2.5 Gallon Air Compressor",                type: "Air Compressor", serial: "AC4",      status: "Active", lastService: "", nextService: "", year: "" },
+  { id: "NA1",       name: "550 Air Scrubber MC",                      type: "Air Scrubber",  serial: "NA1",       status: "Active", lastService: "", nextService: "", year: "" },
+  { id: "NA2",       name: "550 Air Scrubber MC",                      type: "Air Scrubber",  serial: "NA2",       status: "Active", lastService: "", nextService: "", year: "" },
+  { id: "NA3",       name: "550 Air Scrubber MC",                      type: "Air Scrubber",  serial: "NA3",       status: "Active", lastService: "", nextService: "", year: "" },
+  { id: "FAN4",      name: "Fan",                                       type: "Fan",           serial: "FAN4",      status: "Active", lastService: "", nextService: "", year: "" },
+  { id: "FAN5",      name: "Fan",                                       type: "Fan",           serial: "FAN5",      status: "Active", lastService: "", nextService: "", year: "" },
+  { id: "CM1",       name: "Concrete Mixer Electric",                  type: "Concrete",      serial: "CM1",       status: "Active", lastService: "", nextService: "", year: "" },
+  { id: "CM2",       name: "Concrete Mixer Electric",                  type: "Concrete",      serial: "CM2",       status: "Active", lastService: "", nextService: "", year: "" },
+  { id: "PC1",       name: "Plate Compactor",                          type: "Compactor",     serial: "PC1",       status: "Active", lastService: "", nextService: "", year: "" },
+  { id: "PC2",       name: "Reversible Plate Compactor",               type: "Compactor",     serial: "PC2",       status: "Active", lastService: "", nextService: "", year: "" },
+  { id: "T1",        name: "Marksman Equipment Trailer",               type: "Trailer",       serial: "T1",        status: "Active", lastService: "", nextService: "", year: "2014" },
+  { id: "T2",        name: "MULTIQUIP WATERWAGON",                     type: "Trailer",       serial: "T2",        status: "Active", lastService: "", nextService: "", year: "2022" },
+  { id: "T3",        name: "JLG Drop Deck Trailer",                    type: "Trailer",       serial: "T3",        status: "Active", lastService: "", nextService: "", year: "2013" },
+  { id: "T4",        name: "Fruehauf End Dump Trailer",                type: "Trailer",       serial: "T4",        status: "Active", lastService: "", nextService: "", year: "" },
+  { id: "T5",        name: "Delta 7x20 Tilt Deck Trailer",             type: "Trailer",       serial: "T5",        status: "Active", lastService: "", nextService: "", year: "2021" },
+  { id: "T8",        name: "Fruehauf End Dump Trailer",                type: "Trailer",       serial: "T8",        status: "Active", lastService: "", nextService: "", year: "" },
+  { id: "T7",        name: "Trail King TK80H",                         type: "Trailer",       serial: "T7",        status: "Active", lastService: "", nextService: "", year: "2016" },
+  { id: "HB1",       name: "HB680 Hydraulic Breaker / Ex1",            type: "Hydraulic Breaker", serial: "HB1",   status: "Active", lastService: "", nextService: "", year: "2020" },
+  { id: "HB2",       name: "Breaker / Skid Steer Breaker",             type: "Hydraulic Breaker", serial: "HB2",   status: "Active", lastService: "", nextService: "", year: "2011" },
+  { id: "HB5",       name: "Stanley Hydraulic Breaker",                type: "Hydraulic Breaker", serial: "HB5",   status: "Active", lastService: "", nextService: "", year: "2020" },
+  { id: "HB7",       name: "Breaker",                                  type: "Hydraulic Breaker", serial: "HB7",   status: "Active", lastService: "", nextService: "", year: "" },
+  { id: "JJ1",       name: "Jumping Jack",                             type: "Compactor",     serial: "JJ1",       status: "Active", lastService: "", nextService: "", year: "" },
+  { id: "JJ2",       name: "Jumping Jack",                             type: "Compactor",     serial: "JJ2",       status: "Active", lastService: "", nextService: "", year: "" },
+  { id: "PC3",       name: "Plate Compactor",                          type: "Compactor",     serial: "PC3",       status: "Active", lastService: "", nextService: "", year: "" },
+  { id: "V1",        name: "Vacuum",                                   type: "Vacuum",        serial: "V1",        status: "Active", lastService: "", nextService: "", year: "" },
+  { id: "V2",        name: "Vacuum",                                   type: "Vacuum",        serial: "V2",        status: "Active", lastService: "", nextService: "", year: "" },
+  { id: "V3",        name: "Vacuum",                                   type: "Vacuum",        serial: "V3",        status: "Active", lastService: "", nextService: "", year: "" },
+  { id: "NA4",       name: "Negative Air Machine",                     type: "Air Scrubber",  serial: "NA4",       status: "Active", lastService: "", nextService: "", year: "" },
+  { id: "GenSpare1", name: "Generator Spare 1",                        type: "Generator",     serial: "GenSpare1", status: "Active", lastService: "", nextService: "", year: "" },
+  { id: "GenSpare2", name: "Generator Spare 2",                        type: "Generator",     serial: "GenSpare2", status: "Active", lastService: "", nextService: "", year: "" },
+  { id: "GenSpare3", name: "Generator Spare 3",                        type: "Generator",     serial: "GenSpare3", status: "Active", lastService: "", nextService: "", year: "" },
+  { id: "NA5",       name: "Negative Air Machine",                     type: "Air Scrubber",  serial: "NA5",       status: "Active", lastService: "", nextService: "", year: "" },
+  { id: "AU1-EX1",   name: "Auger",                                    type: "Attachment",    serial: "AU1-EX1",   status: "Active", lastService: "", nextService: "", year: "" },
+  { id: "PW1",       name: "Pressure Washer",                          type: "Other",         serial: "PW1",       status: "Active", lastService: "", nextService: "", year: "" },
+  { id: "GHCS1",     name: "Chop Saw",                                 type: "Saw",           serial: "GHCS1",     status: "Active", lastService: "", nextService: "", year: "" },
+  { id: "GHCS2",     name: "Chop Saw",                                 type: "Saw",           serial: "GHCS2",     status: "Active", lastService: "", nextService: "", year: "" },
+  { id: "GHCS3",     name: "Chop Saw",                                 type: "Saw",           serial: "GHCS3",     status: "Active", lastService: "", nextService: "", year: "" },
+  { id: "GHCS4",     name: "Chop Saw",                                 type: "Saw",           serial: "GHCS4",     status: "Active", lastService: "", nextService: "", year: "" },
+  { id: "EWS",       name: "Electric Wall Saw",                        type: "Saw",           serial: "EWS",       status: "Active", lastService: "", nextService: "", year: "" },
+  { id: "CD1",       name: "Core Drill Machine",                       type: "Drill",         serial: "CD1",       status: "Active", lastService: "", nextService: "", year: "" },
+  { id: "CD2",       name: "Core Drill Machine",                       type: "Drill",         serial: "CD2",       status: "Active", lastService: "", nextService: "", year: "" },
+  { id: "ECH1",      name: "Electric Chipping Hammer",                 type: "Breaker",       serial: "ECH1",      status: "Active", lastService: "", nextService: "", year: "" },
+  { id: "ECH2",      name: "Electric Jack Hammer",                     type: "Breaker",       serial: "ECH2",      status: "Active", lastService: "", nextService: "", year: "" },
+  { id: "HB3",       name: "Hydraulic Breaker",                        type: "Hydraulic Breaker", serial: "HB3",   status: "Active", lastService: "", nextService: "", year: "" },
+  { id: "RB1",       name: "Rebar Bender",                             type: "Concrete",      serial: "RB1",       status: "Active", lastService: "", nextService: "", year: "" },
+  { id: "RB2",       name: "Rebar Bender",                             type: "Concrete",      serial: "RB2",       status: "Active", lastService: "", nextService: "", year: "" },
+  { id: "RB3",       name: "Rebar Bender",                             type: "Concrete",      serial: "RB3",       status: "Active", lastService: "", nextService: "", year: "" },
+];
+
+export const DEMO_WORK_ORDERS = [
+  { id: "WO-2025-001", equipmentId: "EX4", equipmentName: "Komatsu Excavator / 15 ton", title: "Oil and filter change",       status: "Completed",   priority: "Medium", mechanicId: "M001", mechanicName: "Hernan Cortes", mobilization: "false", mobTime: "",   mobUnit: "",        mobFrom: "", mobNotes: "", createdAt: fmt(subDays(now,5)), completedAt: fmt(subDays(now,4)) },
+  { id: "WO-2025-002", equipmentId: "SS1", equipmentName: "Compact Track Loader",        title: "Hydraulic system inspection", status: "In Progress", priority: "High",   mechanicId: "M001", mechanicName: "Hernan Cortes", mobilization: "true",  mobTime: "45", mobUnit: "minutes", mobFrom: "Shop → Job Site Downtown", mobNotes: "Heavy traffic on I-5", createdAt: fmt(subDays(now,2)), completedAt: "" },
+  { id: "WO-2025-003", equipmentId: "GEN3", equipmentName: "Generator - Diesel",         title: "Annual service",              status: "Pending",     priority: "Low",    mechanicId: "M001", mechanicName: "Hernan Cortes", mobilization: "false", mobTime: "",   mobUnit: "",        mobFrom: "", mobNotes: "", createdAt: fmt(subDays(now,1)), completedAt: "" },
+  { id: "WO-2025-004", equipmentId: "FKL",  equipmentName: "Hyster H50CT Forklift",      title: "Brake inspection",            status: "In Progress", priority: "Medium", mechanicId: "M001", mechanicName: "Hernan Cortes", mobilization: "true",  mobTime: "2",  mobUnit: "hours",   mobFrom: "Warehouse → North Yard", mobNotes: "Needed flatbed trailer", createdAt: fmt(subDays(now,3)), completedAt: "" },
+  { id: "WO-2025-005", equipmentId: "EX1",  equipmentName: "Mini Ex / 2 ton",            title: "Track replacement",           status: "Pending",     priority: "High",   mechanicId: "M001", mechanicName: "Hernan Cortes", mobilization: "false", mobTime: "",   mobUnit: "",        mobFrom: "", mobNotes: "", createdAt: fmt(now),            completedAt: "" },
+];
+
+export const DEMO_PARTS = [
+  { id: "PT-001", workOrderId: "WO-2025-002", equipmentId: "SS1", equipmentName: "Compact Track Loader", partName: "Hydraulic Filter",        partNumber: "HF-4892",    qty: "2",  unitCost: "45.00",  totalCost: "90.00",  supplier: "NAPA",        status: "In Stock",    needToBuy: "false", notes: "",                   createdAt: fmt(subDays(now,2)) },
+  { id: "PT-002", workOrderId: "WO-2025-004", equipmentId: "FKL", equipmentName: "Hyster H50CT Forklift", partName: "Brake Pad Set",           partNumber: "BP-7741",    qty: "1",  unitCost: "120.00", totalCost: "120.00", supplier: "Hyster Parts",status: "Need to Order",needToBuy: "true",  notes: "Check local dealer", createdAt: fmt(subDays(now,3)) },
+  { id: "PT-003", workOrderId: "WO-2025-001", equipmentId: "EX4", equipmentName: "Komatsu Excavator 15t", partName: "Engine Oil Filter",        partNumber: "EO-2210",    qty: "1",  unitCost: "28.50",  totalCost: "28.50",  supplier: "NAPA",        status: "Used",        needToBuy: "false", notes: "",                   createdAt: fmt(subDays(now,5)) },
+  { id: "PT-004", workOrderId: "WO-2025-001", equipmentId: "EX4", equipmentName: "Komatsu Excavator 15t", partName: "Engine Oil 15W-40 (5gal)", partNumber: "OIL-15W40",  qty: "3",  unitCost: "42.00",  totalCost: "126.00", supplier: "NAPA",        status: "Used",        needToBuy: "false", notes: "",                   createdAt: fmt(subDays(now,5)) },
+  { id: "PT-005", workOrderId: "WO-2025-005", equipmentId: "EX1", equipmentName: "Mini Ex / 2 ton",       partName: "Rubber Track",            partNumber: "RT-300X52",  qty: "1",  unitCost: "890.00", totalCost: "890.00", supplier: "Track Store", status: "Need to Order",needToBuy: "true",  notes: "Lead time 3-5 days", createdAt: fmt(now) },
+];
+
+export const DEMO_TIME_ENTRIES = [
+  { id: "TE001", workOrderId: "WO-2025-001", mechanicId: "M001", mechanicName: "Hernan Cortes", clockIn: fmt(subDays(now,4)),   clockOut: fmt(subHours(subDays(now,4),-3)), hours: "3.0", notes: "Oil change completed",    billable: "true" },
+  { id: "TE002", workOrderId: "WO-2025-002", mechanicId: "M001", mechanicName: "Hernan Cortes", clockIn: fmt(subHours(now,5)),  clockOut: "",                               hours: "",    notes: "In progress",            billable: "true" },
+  { id: "TE003", workOrderId: "WO-2025-004", mechanicId: "M001", mechanicName: "Hernan Cortes", clockIn: fmt(subDays(now,2)),   clockOut: fmt(subHours(subDays(now,2),-6)), hours: "6.0", notes: "First phase complete",   billable: "true" },
+  { id: "TE004", workOrderId: "WO-2025-001", mechanicId: "M001", mechanicName: "Hernan Cortes", clockIn: fmt(subDays(now,5)),   clockOut: fmt(subHours(subDays(now,5),-2)), hours: "2.0", notes: "Diagnosis",              billable: "false" },
+];
