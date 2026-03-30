@@ -2,6 +2,7 @@
   "name": "mechtrack",
   "version": "1.0.0",
   "private": true,
+  "homepage": "https://mariazlc23.github.io/mechtrack",
   "engines": {
     "node": "18.x"
   },
@@ -17,7 +18,12 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test"
+    "test": "react-scripts test",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.0.0"
   },
   "browserslist": {
     "production": [">0.2%", "not dead", "not op_mini all"],
