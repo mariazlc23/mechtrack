@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/mechtrack/static/css/main.be2240c8.css",
-    "main.js": "/mechtrack/static/js/main.0fa8e24f.js",
+    "main.js": "/mechtrack/static/js/main.a63c823a.js",
     "index.html": "/mechtrack/index.html",
     "main.be2240c8.css.map": "/mechtrack/static/css/main.be2240c8.css.map",
-    "main.0fa8e24f.js.map": "/mechtrack/static/js/main.0fa8e24f.js.map"
+    "main.a63c823a.js.map": "/mechtrack/static/js/main.a63c823a.js.map"
   },
   "entrypoints": [
     "static/css/main.be2240c8.css",
-    "static/js/main.0fa8e24f.js"
+    "static/js/main.a63c823a.js"
   ]
 }
